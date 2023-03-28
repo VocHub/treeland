@@ -1,0 +1,418 @@
+@import "var"
+@import "bourbon/bourbon"
+.post-form
+  width: 100%
+  //background: #f44
+  button
+    &.close
+      @media only screen and (min-width: 768px)
+        display: none
+      border: none
+      outline: none
+      position: absolute
+      background: none
+      right: 0px
+      font-size: 18px
+      color: $nature_green
+  @media only screen and (max-width: 767px)
+    @include transition(all 0.5s ease)
+    position: fixed
+    //display: none
+    z-index: 999
+    margin-left: -100%
+    &.new-post-active
+      //display: block
+      margin-left: 0px
+
+  form
+
+    textarea
+      width: 100%
+      resize: none
+      box-sizing: border-box
+      //@include border-top-radius(5px)
+      font-size: 14px
+      padding: 15px
+      border: 1px solid #e0e0e0
+      vertical-align: bottom
+      border-bottom-width: 0px
+      outline: none
+      margin: 0
+    input[type=text]
+      width: 100%
+      box-sizing: border-box
+      @include border-top-radius(5px)
+      font-size: 16px
+      font-weight: bold
+      padding: 15px
+      border: 1px solid #e0e0e0
+      vertical-align: bottom
+      border-bottom-width: 0px
+      outline: none
+      margin: 0
+  .controles-panal
+    background: #f9f9f9
+    padding: 15px
+    border: 1px solid #e0e0e0
+    margin: 0px
+    @include border-bottom-radius(5px)
+    overflow: hidden
+    position: relative
+    .loading
+      display: inline-block
+      vertical-align: middle
+    .upload-meter
+      display: block
+      position: absolute
+      width: 100%
+      height: 4px
+      //background: #00f
+      bottom: 0px
+      left: 0px
+      //margin-top: -4px
+      .progress-bar
+        @include transition(all 0.3s ease)
+        width: 0%
+        background: $nature_green
+        display: block
+        left: 0px
+        top: 0px
+        height: 100%
+    input[type=submit]
+      border: 1px solid $nature_green
+      background: $nature_green
+      padding: 4px 10px
+      outline: none
+      font-size: 14px
+      @include border-left-radius(3px)
+      @include border-right-radius(3px)
+      color: #fff
+
+    button
+      border: 1px solid #e0e0e0
+      background: #fff
+      padding: 4px 10px
+      outline: none
+      font-size: 14px
+      color: #5b5b5b
+      @include border-left-radius(3px)
+      @include border-right-radius(3px)
+      margin-right: 5px
+      &:hover
+        background: #f9f9f9
+    .preview
+      display: block
+      border: 1px solid #e0e0e0
+      @include border-left-radius(3px)
+      @include border-right-radius(3px)
+      padding: 5px
+      box-sizing: border-box
+      margin-bottom: 10px
+    .add
+      display: inline-block
+      //border: 1px solid #e0e0e0
+      @include border-left-radius(3px)
+      @include border-right-radius(3px)
+      height: 100px
+      width: 100px
+      overflow: hidden
+      color: #fff
+      font-size: 16px
+      font-weight: 400
+      background: #e0e0e0
+      &:hover
+        background: #cacaca
+      .add-flex
+        height: 100%
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+
+    .img-preview
+      display: inline-block
+      height: 100px
+      width: 100px
+      overflow: hidden
+      margin-right: 2px
+      text-align: center
+      img
+        display: inline-block
+        &.portrait
+          height: 100%
+          width: auto
+        &.landscape
+          height: auto
+          width: 100%
+.post
+  .social
+    background: #f5f5f5
+
+    padding: 5px 15px
+    a
+      font-size: 18px
+      text-decoration: none
+      vertical-align: middle
+      color: #3b5998
+      span
+        &.txt
+          font-size: 12px
+          vertical-align: middle
+
+  .owner
+    .controls
+      button
+        right: 0
+        margin-top: 17px
+        margin-right: 10px
+        padding: 6px
+        color: #e0e0e0
+        background: #fff
+        border: none
+        font-size: 14px
+        outline: none
+        position: absolute
+        &:hover
+          color: #c0c0c0
+        &:focus
+          & + .drop
+            display: block
+        &:active
+          & + .drop
+            display: block
+      .drop
+        background: #fff
+        display: none
+        position: absolute
+        right: 0
+        margin-top: 40px
+        margin-right: 5px
+        @include border-left-radius(3px)
+        @include border-right-radius(3px)
+        border: 1px solid #e0e0e0
+        &:hover
+          display: block
+        //min-width: 90px
+        ul
+          padding: 0
+          margin: 0
+          font-size: 14px
+          font-weight: 400
+          list-style-type: none
+          li
+            box-sizing: border-box
+            border-bottom: 1px solid #e0e0e0
+            &:hover
+              background: #f5f5f5
+            a
+              display: inline-block
+              text-decoration: none
+              color: #5b5b5b
+              padding: 5px 10px
+              width: 100%
+              box-sizing: border-box
+            i
+              margin-right: 5px
+
+
+
+
+  .images
+    //border-top: 1px solid #e0e0e0
+    width: 100%
+    padding: 5px
+    //background: #e0e0e0
+    box-sizing: border-box
+    max-height: 430px
+    overflow: hidden
+    .image
+      border: 1px solid #e0e0e0
+      padding: 2px
+      //width: calc((100% - 5px)/2)
+      box-sizing: border-box
+      display: inline-block
+      vertical-align: top
+      margin: 0
+      margin-right: 5px
+      //max-height: 430px
+      //overflow: hidden
+      &:last-child
+        margin-right: 0
+      &.img-1
+        width: calc(60%)
+      &.img-2
+        width: calc((100% - 5px*1)/2)
+      &.img-3
+        width: calc((100% - 5px*2)/3)
+      &.img-4
+        width: calc((100% - 5px*3)/4)
+
+      img
+        width: 100%
+        height: auto
+        display: block
+
+    .other
+      border: 1px solid #e0e0e0
+      padding: 2px
+      width: calc(100% - 5px)/2
+      box-sizing: border-box
+      display: inline-block
+      margin-left: 5px
+      img
+        width: 50%
+        height: auto
+        display: inline-block
+  .text-edit
+    border-top: 1px solid #e0e0e0
+    border-left: 0px solid $nature_green
+    padding: 15px
+    box-sizing: border-box
+
+    input
+      width: 100%
+      font-size: 14px
+      margin-bottom: 10px
+
+      border-style: dashed
+      border: 1px dashed #b5b5b5
+      padding: 5px
+      box-sizing: border-box
+      outline: none
+    textarea
+      width: 100%
+      font-size: 14px
+      border-style: dashed
+      border: 1px dashed #b5b5b5
+      padding: 5px
+      resize: none
+      box-sizing: border-box
+      outline: none
+    .buttons
+      margin-top: 5px
+      display: inline-block
+      input
+        display: inline-block
+        width: auto
+        margin-right: 3px
+        @include border-top-radius(5px)
+        @include border-bottom-radius(5px)
+        font-size: 11px
+        padding: 2px 6px
+        padding-bottom: 3px
+        outline: none
+        &:first-child
+          background: $nature_green
+          color: #fff
+          border-color: $nature_green
+          border-width: 1px
+        &:nth-child(2)
+          background: #fff
+          color: $nature_green
+          border-color: $nature_green
+          border-width: 1px
+          border-style: solid
+        &:disabled
+          opacity: 0.5
+      .loading
+        display: inline-block
+        vertical-align: middle
+
+
+
+
+  .text
+    border-top: 1px solid #e0e0e0
+    border-left: 0px solid $nature_green
+    padding: 15px
+    color: $nature_green
+    .subject
+      a
+
+        text-decoration: none
+        &:hover
+          h2
+            color: $nature_green
+            //text-decoration: underline
+        h2
+          //transition: all 0.1s ease
+          margin: 0px
+          margin-bottom: 5px
+          font-weight: 400
+          color: #000
+          text-decoration: none
+    .body
+      p
+        margin: 0px
+        font-size: 14px
+        color: #000
+        //word-spacing: 2px
+        line-height: 1.42857
+        font-family: sans-serif
+        font-weight: 400
+
+      a
+        font-size: 14px
+        text-decoration: none
+        color: #00f
+        font-weight: 500
+
+  .comments
+    border-top: 1px solid #e0e0e0
+    background: #f9f9f9
+    form
+      input[type="text"]
+        width: 100%
+        padding: 6px
+        font-size: 14px
+        border: 0px
+        outline: none
+        box-sizing: border-box
+      p
+        font-size: 10px
+        margin: 0px
+        padding: 4px
+        box-sizing: border-box
+        color: $nature_green
+    li
+      ul
+        margin-left: 40px
+        border-left: 2px solid $nature_green
+        padding-left: 10px
+    ul
+      padding: 5px
+      padding-bottom: 3px
+      padding-top: 3px
+      margin: 0px
+      li
+        display: block
+        border-bottom: 1px solid #e5e5e5
+        .comment
+          .avatar
+            position: absolute
+            width: 30px
+            display: inline-block
+            padding: 5px
+            img
+              width: 100%
+              height: auto
+        .text
+
+          color: #000
+          display: inline-block
+          border: 0px
+          padding: 0px
+          vertical-align: top
+          padding-left: 40px
+          .meta
+            span
+              font-size: 10px
+              &.owner
+                font-size: 12px
+                color: $nature_green
+          .content
+            p
+              font-size: 13px
+              margin: 0px
+              margin-top: 3px
+              margin-bottom: 5px

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <base href="/">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="7OP3mM7tfGPe5yq99vNBzcaKdGuzkpDrFPT3oJiIHd0"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" type="text/css" href="fa/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <!-- endbuild -->
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        },
+        i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-89845033-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body ng-app="naturenurtureApp">
+    <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <nav ng-controller="NavbarController" ng-include="'views/nav.html'">
+
+    </nav>
+
+    <div ng-view=""></div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="fx-valley">
+          <p>Made with
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            by
+            <span>FX Valley
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      !function(A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l,
+        A[l] = A[l] || function() {
+          (A[l].q = A[l].q || []).push(arguments)
+        },
+        A[l].l =+ new Date,
+        a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0],
+        a.src = u,
+        r.parentNode.insertBefore(a, r)
+      }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- <script type="text/javascript" src="bower_components/tinymce/tinymce.js"></script> -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+    <!-- for no html5 browsers support -->
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
+    <!-- <script src='bower_components/angular-ui-tinymce/dist/tinymce.min.js'></script> -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/myroute.js"></script>
+    <script src="scripts/controllers/green-exchange.js"></script>
+    <script src="scripts/services/config.js"></script>
+    <script src="scripts/services/auth.js"></script>
+    <script src="scripts/services/interceptor.js"></script>
+    <script src="scripts/services/user.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/signup.js"></script>
+    <script src="scripts/controllers/logout.js"></script>
+    <script src="scripts/controllers/reset_password.js"></script>
+    <script src="scripts/controllers/forest.js"></script>
+    <script src="scripts/controllers/post.js"></script>
+    <script src="scripts/services/post.js"></script>
+    <script src="scripts/controllers/movement.js"></script>
+    <!-- endbuild -->
+    <script src="scripts/services/truncate.js" charset="utf-8"></script>
+
+    <!-- <script src="bower_components/jquery/dist/" charset="utf-8"></script> -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCO13QjFKNU_2w0aCcwqJV5vymDjr5OVY&libraries=places"></script>
+    <script src="/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+.verify {
+  width: 100%;
+  display: inline-block;
+  font-size: 16px;
+  box-sizing: border-box;
+  vertical-align: top;
+  background: #fff;
+  margin-top: 100px;
+  text-align: center; }
+  @media only screen and (min-width: 768px) {
+    .verify {
+      width: 49.5%;
+      margin-left: 25.18333%;
+      margin-right: 1%;
+      margin-right: 0; } }
+  .verify h1 {
+    color: #50AD65; }
+  .verify p a {
+    font-weight: bold;
+    color: #000;
+    text-decoration: none; }
+    .verify p a:hover {
+      color: #50AD65; }

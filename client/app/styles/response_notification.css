@@ -1,0 +1,107 @@
+body {
+  margin: 0; }
+
+.root {
+  text-align: center;
+  font-family: sans-serif;
+  background: #f5f5f5;
+  padding: 3px; }
+  .root .info {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    color: #a5a5a5; }
+    .root .info p {
+      font-size: 10px; }
+  .root .contact {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    border: 1px solid #00b666;
+    border-radius: 5px;
+    background: white;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-width: 0;
+    background: #00b666;
+    color: white; }
+    .root .contact p {
+      margin: 0;
+      font-weight: 300;
+      font-size: 12px; }
+      .root .contact p span {
+        font-weight: 600;
+        font-size: 20px;
+        letter-spacing: 1px; }
+  .root .res {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: white;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 0px; }
+    .root .res .pic {
+      vertical-align: top;
+      display: inline-block;
+      width: 50px;
+      height: 100%; }
+      .root .res .pic img {
+        width: 100%;
+        height: auto; }
+    .root .res .details {
+      display: inline-block;
+      vertical-align: top; }
+      .root .res .details p {
+        margin: 3px;
+        margin-left: 10px;
+        font-weight: 300;
+        font-size: 12px; }
+        .root .res .details p span {
+          font-weight: 300; }
+        .root .res .details p.name {
+          font-size: 14px;
+          font-weight: 600; }
+        .root .res .details p.item {
+          font-size: 20px;
+          font-weight: 600; }
+        .root .res .details p.add {
+          font-size: 14px;
+          font-weight: 300; }
+        .root .res .details p.date {
+          font-size: 12px;
+          font-weight: 300; }
+  .root .msg {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-top: 50px; }
+    .root .msg h1 {
+      font-size: 20px;
+      margin: 0; }
+    .root .msg p {
+      font-weight: 300;
+      margin: 0; }
+  .root .logo {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 50px; }
+    .root .logo img {
+      width: 100px;
+      height: auto; }
+
+p span.bold {
+  font-weight: bold; }

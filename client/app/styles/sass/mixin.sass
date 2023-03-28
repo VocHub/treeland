@@ -1,0 +1,49 @@
+@import "var"
+@mixin button($fs,$padt:15px,$padl:30px)
+  transition: all 0.5s ease
+  -webkit-appearance: none
+  background-color: #fff
+  color: #000
+  border: 1px solid #000
+  font-weight: 300
+  &:focus
+    outline: none
+  font-size: $fs
+  margin: 6px
+  padding: $padt $padl
+  border-radius: 50px
+  &:hover
+    background-color: #3d69c7
+    color: #fff
+  &:disabled
+    opacity: 0.5
+    background: #999
+    &:hover
+      color: #000
+@mixin container
+  width: 80%
+  margin-left: auto
+  margin-right: auto
+  margin-top: $break
+
+
+@mixin row()
+  width: 100%
+  font-size: 0
+
+@mixin col($row,$sum,$align:top,$gut:$gutter,$last:false,$push:0)
+  width: 100%
+  //padding: 0 $gutter
+
+  display: inline-block
+  font-size: 16px
+  box-sizing: border-box
+  vertical-align: $align
+  // padding-left: if($first,0,$gutter)
+  // padding-right: if($last,0,$gutter)
+
+  @media only screen and (min-width: 768px)
+    width: percentage($row/$sum) - $gut + ($row/$sum)*$gut
+    margin-left: (percentage(1/$sum) )*$push
+    margin-right: percentage($gut/100)
+    margin-right: if($last,0,$gut)

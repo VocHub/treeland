@@ -1,0 +1,205 @@
+.green-ex-container 
+  .cloak(ng-show="new_post")
+  button.menu-toggle(ng-click="toggle_sidebar = toggle_sidebar ? false : true" ng-class="toggle_sidebar ? 'toggle-menu-active' : ''") <i class="fa fa-bars" aria-hidden="true"></i>
+  button.new-post(ng-click="new_post = new_post ? false : true" ng-class="toggle_sidebar ? 'toggle-menu-active' : ''" ng-show="isLoggedIn()") <i class="fa fa-plus" aria-hidden="true"></i> New post
+      
+  .side-bar(ng-class="toggle_sidebar ? 'toggle-menu-active' : ''")
+    .search
+      form
+        input(type="text", placeholder="Search the green exchange",ng-model="search_text")
+
+        input(type="submit", name="name", value="Search",ng-click="search()")
+    hr
+    .sign-up(ng-hide="isLoggedIn()")
+      a(href="#",ng-click="signUpCollapse()")
+        .img
+          img(src="/images/nn-round-line.svg", alt="",height="80px",width="80px")
+        .text  
+          h1 Sign Up Here
+          p Start sharing, it's free.
+      .signup-form(ng-class="isSignUpCollapse ? 'collapse' : ''")
+        form(name="authform.signUpForm", ng-submit="signUp()")
+          label() Name 
+            span *
+          input(type="text", name="fname",placeholder="First name",ng-model="user.first_name",ng-class="{ 'has-error' : authform.signUpForm.fname.$invalid && !authform.signUpForm.fname.$pristine }" required)
+          //- label() Last name
+          //- input(type="text", name="lname",placeholder="Last name",ng-model="user.last_name")
+          label() Email 
+            span *
+          input(type="email", name="email",placeholder="Email address",ng-model="user.email",ng-class="{ 'has-error' : authform.signUpForm.email.$invalid && !authform.signUpForm.email.$pristine }" required)
+          .error(ng-show="duplicate_email")
+            .text
+              p Duplicate email address. Please enter another email address.  
+          label() Password 
+            span *
+          input(type="password", name="pass",placeholder="Password",ng-model="user.password",ng-class="{ 'has-error' : authform.signUpForm.pass.$invalid && !authform.signUpForm.pass.$pristine }" required)
+          label() Repeat password 
+            span *
+          input(type="password", name="rpass",placeholder="Repeat password",ng-model="user.repeat_password",ng-class="{ 'has-error' : authform.signUpForm.rpass.$invalid && !authform.signUpForm.rpass.$pristine  }" required)
+          .error(ng-show="!authform.signUpForm.rpass.$pristine && (user.password !== user.repeat_password)")
+            .text
+              p Passwords should match.
+          label(class="guid")
+            span * 
+            span Fields are required.
+            
+          input(type="submit", name="name", value="Sign up",ng-disabled="authform.signUpForm.$invalid || plant.plantLoading || (user.password !== user.repeat_password)")
+          .terms
+            .text
+              p By signing up, you agree to our<br><strong>Terms and Privacy Policy.</strong>
+    
+    .menu  
+      ul
+        li
+          a(href="#", ng-click="getAllPosts(); currentSidebarItem='all_plants'", ng-hide="",ng-class="isMenuItemActive('all_plants') ? 'active' : ''") 
+            .side-menu-item
+              .icon
+                img(src="/images/responds.svg", alt="Post a new plant")
+              .text
+                h2 All posts
+                p All the exciting things
+                  
+        li(ng-hide="!isLoggedIn()")
+          a(href="#", ng-click="getMyPlants(); currentSidebarItem='my_plants'", ng-hide="",ng-class="isMenuItemActive('my_plants') ? 'active' : ''") 
+            .side-menu-item
+              .icon
+                img(src="/images/avatar.svg", alt="Post a new plant")
+              .text
+                h2 My posts
+                p View and edit my posts
+        //- li(ng-hide="!isLoggedIn()")
+        //-   a(href="#", ng-click="getMyBids(); currentSidebarItem='my_bids'", ng-hide="",ng-class="isMenuItemActive('my_bids') ? 'active' : ''") 
+        //-     .side-menu-item
+        //-       .icon
+        //-         img(src="/images/avatar.svg", alt="Post a new plant")
+        //-       .text
+        //-         h2 My bids
+        //-         p Bids and responses   
+         
+      
+    .filler
+  //- .new-posts()
+  //-   h1 {{posts.length}}
+  //-   p posts
+  
+  .posts
+    .verify_email_notification(ng-show="verify_email_notification")
+      h1 <i class="fa fa-check" aria-hidden="true"></i> Your are almost ready
+      p You are successfully signed up with Nature Nurture
+      .notification 
+        p.important Please check your inbox and verify your email address.
+        p We have sent you a verification email to the email address you provided and it should be in your inbox shortly.
+    .post-form(ng-hide="!isLoggedIn()" ng-class="new_post ? 'new-post-active' : '' ")
+      button(type="button" ng-click = "new_post  = false").close <i class="fa fa-times-circle" aria-hidden="true"></i>
+      form(name="postForm", ng-submit="submitPost()")
+        input(type="text", placeholder="Subject...", ng-model="post.subject", maxlength="100")
+        textarea( name="name", rows="4", ng-model="post.body",placeholder="Write your post..." , maxlength="10000" required)
+        .controles-panal
+          .preview(ng-show="files && files.length")
+            .img-preview(ng-repeat="file in files")
+              img.portrait(ngf-thumbnail="file")
+               
+              
+            .add(name="file", ngf-select ng-model="files" ngf-multiple="true", ngf-keep="'distinct'",ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="5MB" ngf-dimensions="dim($file, $width, $height)")
+              .add-flex Add more
+                
+          button(type="button", name="file", ngf-select ng-model="files" ngf-multiple="true", ngf-keep="false" ngf-max-size="5MB" ngf-dimensions="dim($file, $width, $height)") <i class="fa fa-picture-o" aria-hidden="true"></i> Photo
+          
+          input(type="submit", value="Post", ng-disabled="postForm.$invalid")
+          
+          .loading(ng-show="postLoading")
+            img(src="/images/ball.gif", alt="")
+              
+          .upload-meter(ng-show="postLoading")
+            .progress-bar(style="width:{{progressPercentage}}%")
+        
+     
+    .post(ng-repeat="post in posts")
+        
+      .owner
+        a(href="{{postUrl(post)}}" target="_blank")
+          .image()
+            img(class='img',src='/images/avatar.svg')
+          .details
+            h2(class='name')  {{post.owner.name}} 
+            p(class='action') has posted on 
+              span#marketplace 
+                strong The Forest
+            p(class='date') {{post.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+        .controls
+          button <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          .drop  
+            ul
+              li(ng-show="isLoggedIn() && isMyPost(post)")
+                a(href="" ng-click="enable_editing(post)") <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+              li(ng-show="isLoggedIn() && isMyPost(post)")
+                a() <i class="fa fa-trash" aria-hidden="true"></i> Delete 
+              li
+                a() <i class="fa fa-ban" aria-hidden="true"></i> Report
+            
+      .text-edit(ng-show="post.editing")
+        form(ng-submit="submit_edit_post(post)")
+          input(type="text", placeholder="Subject...", ng-model="post.shadow.subject", maxlength="100")
+          textarea( name="name", rows="6", placeholder="Write your post...", ng-model="post.shadow.body")
+          .buttons
+            input(type="submit", value="Done" ng-disabled="post.shadow.editInProgress")
+            input(type="button", value="Cancel" ng-disabled="post.shadow.editInProgress",ng-click="edit_cancel(post)")  
+            .loading(ng-show="post.shadow.editInProgress")
+              img(src="/images/ball.gif", alt="Wait..", height="20px" , width="20px")
+              
+          
+      .text(ng-hide="post.editing")
+        .subject(ng-show="post.subject")
+          a(href="{{postUrl(post)}}" target="_blank")  
+            h2 {{post.subject}}
+        .body(ng-hide="post.body_collapsed")
+          p(ng-bind-html="newlineToBr(post.body).split('<br />').slice(0,8).join('<br />') | words: 60") 
+          
+          a(ng-show="post.body.split(' ').length > 60 || newlineToBr(post.body).split('<br />').length > 8" href="", ng-click="post.body_collapsed = true") Read more
+        .body(ng-show="post.body_collapsed")
+         p(ng-bind-html="newlineToBr(post.body)") 
+          //- span(ng-show="")
+          //-   a(href="") Read more    
+            
+          
+      .images(ng-show="post.images && post.images.length")
+        .image(ng-repeat="img in post.images|limitTo:4", ng-class="imageGridClass(post)")
+          a(href="{{postUrl(post)}}" target="_blank")  
+            img(src="{{img.url}}")
+      .social
+        a(href="#" socialshare socialshare-provider="facebook" socialshare-type="share" socialshare-title="{{post.subject}}" socialshare-description="{{post.body}}" socialshare-hashtags="naturenurture, greenexchange, theforest, lka" socialshare-via="1284200164956355" socialshare-media="http://www.naturenurture.lk/{{post.images[0].url}}" socialshare-url="{{postUrl(post)}}") 
+          span <i class="fa fa-facebook-square" aria-hidden="true"></i> 
+          span.txt Share
+      
+          
+      .comments
+        
+          
+        ul(ng-show="post.comments && post.comments.length")
+          li(ng-repeat="comment in post.comments") 
+            .comment 
+              .avatar
+                img(class='img',src='/images/avatar.svg')
+              .text
+                .meta
+                  span.owner {{comment.owner.name}}  
+                  span {{comment.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+                .content 
+                  p {{comment.body}}
+        form(ng-submit="submit_comment(post)", ng-hide="!isLoggedIn()")
+          p Press enter to post your comment
+          input(type="text", placeholder="Write your comment...", ng-model="post.new_comment.body")
+          input(type="submit" ng-disabled="post.new_comment.pending", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
+            
+      
+
+
+
+
+
+
+
+
+
+//- script(type="application/javascript", src="../../assets/js/script.js")
+//script(type="application/javascript",src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCO13QjFKNU_2w0aCcwqJV5vymDjr5OVY&libraries=places&callback=initAutocomplete" async defer)

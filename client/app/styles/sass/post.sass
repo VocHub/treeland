@@ -1,0 +1,127 @@
+@import "var"
+@import "bourbon/bourbon"
+@import "mixin"
+.post-container
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  margin-top: $break
+  margin-top: 80px
+  @media only screen and (min-width: 768px)
+    width: 768px
+.post
+  .signup-request
+    margin-top: 20px
+    padding: 10px
+    box-sizing: border-box
+    p
+      span
+        font-size: 18px
+        a
+          color: $nature_green
+
+  .comments
+    &.round
+      margin-top: 10px
+      border-radius: 5px
+      overflow: hidden
+  .post-title
+    text-align: center
+    padding: 0px 5px
+    h1
+      color: #000
+
+  .post-body
+    background: #fff
+    padding: 20px
+    border-radius: 5px
+    margin-top: 20px
+    //box-shadow: 0px 3px 10px #ddd
+    p
+      color: #000
+
+  .tiles
+    margin-top: 30px
+    text-align: center
+    .tile-container
+      display: inline-block
+      text-align: center
+      width: 100%
+      .tile-align
+        display: inline-block
+        text-align: center
+        width: 100%
+        @media only screen and (min-width: 768px)
+          text-align: left
+        .cover
+          width: 100%
+          height: 300px
+          display: inline-block
+          background-size: cover
+          background-position: center
+          @media only screen and (min-width: 768px)
+            width: 768px
+        .image-tile
+          height: calc(768px/4)
+          width: calc(768px/4)
+          background: #999
+          display: inline-block
+          background-size: cover
+          background-position: center
+
+  .owner
+    position: relative
+    height: 60px
+    top: 0px
+    left: 0px
+    //background: #00f
+
+    .image
+      position: absolute
+      padding: 5px
+      $h: 50px
+      height: $h
+      width: $h
+
+
+      .img
+        height: 100%
+        border-radius: 50%
+
+    .details
+      position: absolute
+      top: 0px
+      right: 0px
+      bottom: 0px
+      left: 60px
+      //background: #0f0
+      padding: 5px
+      padding-left: 5px
+
+      h2.name
+        font-size: 15px
+        color: $nature_green
+        position: relative
+        margin: 0px
+
+      p.action
+        position: relative
+        //top: 45px
+        font-size: 12px
+        color: #444
+        margin: 0px
+      p.date
+        position: relative
+        margin: 0px
+        margin-top: 3px
+        font-size: 10px
+        color: $gray
+    .controls
+      button
+        &.round
+          height: 30px
+          width: 30px
+          border-radius: 50px
+          box-shadow: 0px 3px 10px #ccc
+          &:hover
+            box-shadow: 0px 1px 5px #ccc

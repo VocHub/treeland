@@ -1,0 +1,185 @@
+@import "bourbon/bourbon"
+@import "var"
+nav
+  position: fixed
+  z-index: 1000
+  top: 0px
+  left: 0px
+  right: 0px
+  height: 60px
+  background: #fff
+  color: #000
+  @include display(flex)
+
+  @include justify-content(space-around)
+  @include align-items(center)
+  border-bottom: rgb(224, 224, 224) 1px solid
+  @media only screen and (max-width: 767px)
+    display: block
+
+  // display: flex
+  // justify-content: space-around
+  // align-items: center
+
+  .menu-m
+
+    @media only screen and (min-width: 768px)
+      display: none
+    height: 100%
+    display: block
+    width: 100%
+    position: absolute
+    left: 0px
+
+
+    ul
+      display: block
+      width: 100%
+      padding-left: 0px
+      margin: 0
+      //display: flex
+      background: #fff
+      //border-top: rgb(224, 224, 224) 1px solid
+
+      .active
+        a
+          color: $nature_green
+      li
+        display: block
+        margin-right: 20px
+        font-weight: bold
+        padding: 8px 0px
+        box-sizing: border-box
+        margin: 0
+        padding-left: 10px
+        border-bottom: rgb(224, 224, 224) 1px solid
+        &.profile
+          font-size: 12px
+          .image
+            display: inline-block
+            height: 30px
+            width: 30px
+            vertical-align: middle
+            margin-right: 3px
+            box-sizing: border-box
+          .details
+            .greet
+              display: block
+              margin-bottom: 2px
+
+            display: inline-block
+            vertical-align: middle
+            a
+              @include transition(all 0.5s ease)
+              @include border-left-radius(3px)
+              @include border-right-radius(3px)
+              font-size: 10px
+              padding: 2px
+              border: 1px solid #999999
+              //display: block
+              width: auto
+
+              &:hover
+                background: $nature_green
+                color: #fff
+                border-color: $nature_green
+                //font-weight: 300
+
+        a
+          text-decoration: none
+          color: inherit
+
+        &:hover
+          a
+            color: $nature_green
+
+  .menu
+    height: 100%
+    @include display(flex)
+    @include align-items(center)
+    @media only screen and (max-width: 767px)
+      display: none
+    ul
+      @include display(flex)
+      @include align-items(center)
+      //display: flex
+      .active
+        a
+          color: $nature_green
+      li
+        display: block
+        margin-right: 20px
+        font-weight: bold
+        &.profile
+          font-size: 12px
+          .image
+            display: inline-block
+            height: 30px
+            width: 30px
+            vertical-align: middle
+            margin-right: 3px
+            box-sizing: border-box
+          .details
+            .greet
+              display: block
+              margin-bottom: 2px
+
+            display: inline-block
+            vertical-align: middle
+            a
+              @include transition(all 0.5s ease)
+              @include border-left-radius(3px)
+              @include border-right-radius(3px)
+              font-size: 10px
+              padding: 2px
+              border: 1px solid #999999
+              //display: block
+              width: auto
+
+              &:hover
+                background: $nature_green
+                color: #fff
+                border-color: $nature_green
+                //font-weight: 300
+
+        a
+          text-decoration: none
+          color: inherit
+
+        &:hover
+          a
+            color: $nature_green
+
+  .logo
+    //width: 200px
+    height: 100%
+    padding-left: 5px
+
+    a
+      @include display(flex)
+      @include align-items(center)
+      height: 100%
+      img
+        height: 70%
+        width: auto
+    @media only screen and (max-width: 767px)
+      display: inline-block
+      a
+        img
+          height: 50%
+  button
+    @include transition(all 0.5s ease)
+    @media only screen and (min-width: 768px)
+      display: none
+
+    height: 100%
+    background: #fff
+    vertical-align: top
+    font-size: 2em
+    border: none
+    outline: none
+    padding-left: 15px
+    padding-right: 15px
+    &.active
+      background: $nature_green
+      color: #fff

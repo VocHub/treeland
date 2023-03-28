@@ -1,0 +1,47 @@
+.su-container
+  .verify_email_notification(ng-show="verify_email_notification")
+    h1 <i class="fa fa-check" aria-hidden="true"></i> Your are almost ready
+    p You are successfully signed up with Nature Nurture
+    .notification 
+      p.important Please check your inbox and verify your email address.
+      p We have sent you a verification email to the email address you provided and it should be in your inbox shortly.
+  .signup-board(ng-hide="verify_email_notification")
+    .sign-up
+      a(href="#",ng-click="signUpCollapse()")
+        .img
+          img(src="/images/nn-round-line.svg", alt="",height="80px",width="80px")
+        .text  
+          h1 Sign Up Here
+          p Start exchanging, it's free.
+      .signup-form(ng-class="isSignUpCollapse ?'collapse' : 'collapse'")
+        form(name="authform.signUpForm", ng-submit="signUp()")
+          label() Name 
+            span *
+          input(type="text", name="fname",placeholder="First name",ng-model="user.first_name",ng-class="{ 'has-error' : authform.signUpForm.fname.$invalid && !authform.signUpForm.fname.$pristine }" required)
+          //- label() Last name
+          //- input(type="text", name="lname",placeholder="Last name",ng-model="user.last_name")
+          label() Email 
+            span *
+          input(type="email", name="email",placeholder="Email address",ng-model="user.email",ng-class="{ 'has-error' : authform.signUpForm.email.$invalid && !authform.signUpForm.email.$pristine }" required)
+          .error(ng-show="duplicate_email")
+            .text
+              p Duplicate email address. Please enter another email address.  
+          label() Password 
+            span *
+          input(type="password", name="pass",placeholder="Password",ng-model="user.password",ng-class="{ 'has-error' : authform.signUpForm.pass.$invalid && !authform.signUpForm.pass.$pristine }" required)
+          label() Repeat password 
+            span *
+          input(type="password", name="rpass",placeholder="Repeat password",ng-model="user.repeat_password",ng-class="{ 'has-error' : authform.signUpForm.rpass.$invalid && !authform.signUpForm.rpass.$pristine  }" required)
+          .error(ng-show="!authform.signUpForm.rpass.$pristine && (user.password !== user.repeat_password)")
+            .text
+              p Passwords should match.
+          
+          label(class="guid")
+            span * 
+            span Fields are required.
+            
+          input(type="submit", name="name", value="Sign up",ng-disabled="authform.signUpForm.$invalid || plant.plantLoading || (user.password !== user.repeat_password)")
+          .terms
+            .text
+              p By signing up, you agree to our<br><strong>Terms and Privacy Policy.</strong>
+              

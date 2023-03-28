@@ -1,0 +1,142 @@
+.container
+  .movement-submit
+    
+    .movement-form
+      form(name="pform.plantForm", ng-submit="submitMovement()" novalidate)   
+        input(type="text", class="name", ng-class="{ 'has-error' : pform.plantForm.name.$invalid && !pform.plantForm.name.$pristine }" name="name", ng-model="plant.name", placeholder="Name of the plant" required)
+        input(type="text", name="description", ng-class="{ 'has-error' : pform.plantForm.description.$invalid && !pform.plantForm.description.$pristine }", ng-model="plant.description", placeholder="Description")    
+        // number of plants will be 1
+        input(places-auto-complete size=80 ng-model="plant.address" component-restrictions="{country:'lk'}" types="{{types}}" on-place-changed="movement.placeChanged()", ng-class="{ 'has-error' : pform.plantForm.location.$invalid && !pform.plantForm.location.$pristine }", name="location", class="location" placeholder="Location") 
+        //- .map  
+        //-   ng-map(class="map")   
+        .email(ng-hide="isLoggedIn()") 
+          input(type="text", name="owner", ng-class="{ 'has-error' : pform.plantForm.owner.$invalid && !pform.plantForm.owner.$pristine }", ng-model="plant.owner_name", placeholder="Name" ng-required="!isLoggedIn()")
+          a(href="#" ng-click = "email_drop  = email_drop ? false : true")
+            p Click here to enter your email so you can follow up your plant later
+              span  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+          
+          .hidden(ng-class="email_drop ? 'show' : ''")  
+            
+            input(type="email", name="email", ng-class="{ 'has-error' : pform.plantForm.email.$invalid && !pform.plantForm.email.$pristine }", ng-model="plant.owner_email", placeholder="Email")  
+        .buttons  
+        
+          button(type="button", name="file", ngf-select ng-model="files" ngf-multiple="true", ngf-keep="false" ngf-max-size="5MB" ngf-dimensions="dim($file, $width, $height)") <i class="fa fa-picture-o" aria-hidden="true"></i> Photo
+          input(type="submit", value="Post", ng-disabled="pform.plantForm.$invalid || plant.plantLoading || !files.length")
+          p Upload an image of you planting the plant 
+        .preview(ng-show="files && files.length")
+          .img-preview(ng-repeat="file in files")
+            img.portrait(ngf-thumbnail="file")  
+          
+  .posts
+    .post(ng-repeat = "post in posts")
+      .owner
+        .image
+          img(class='img',src='/images/avatar.svg')
+        .details
+          h2(class='name')  {{post.owner.name ? post.owner.name : post.owner_name}}
+          p(class='action') has joined the
+            span#marketplace 
+              strong Movement
+          p(class='date') {{post.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+          
+            
+        
+      .o-divider 
+      .item
+        span(class="type") {{post.responses.length}} Response{{post.responses.length == 1 ? '':'s'}}
+        span(class="type",ng-class="getPostType(post.type).toLowerCase()") {{post.type}}
+        
+        .image(ng-style="{'background-image':'url(../../'+post.image+')'}")  
+        .details
+          span(ng-hide="post.editing || post.prompt_delete || post.prompt_close")
+          
+            h3(class='name') {{post.name}}
+              
+            p(class='status') {{post.address}}
+            p(class='discription') {{post.description}}
+            p(class='discription') Number of plants: {{post.quantity}}
+            //- a(href="#",ng-click="post.response_form_class = 'collapse'",ng-hide="isMyPost(post) || !isLoggedIn()") 
+            //-   p(class='responds')
+            //-     span
+            //-       //- img(src="/images/responds.svg", alt="",height="25",width="25")
+            //-     span(ng-class="getPostType(post.type).toLowerCase()") <i class="fa fa-comment" aria-hidden="true"></i> Respond  
+            //- a(href="#",ng-click="edit(post)",ng-show="isMyPost(post) && isLoggedIn()") 
+            //-   p(class='responds')
+            //-     span
+            //-       //- img(src="/images/responds.svg", alt="",height="25",width="25")
+            //-     span(ng-class="getPostType(post.type).toLowerCase()") <i class="fa fa-pencil" aria-hidden="true"></i> Edit  
+            //- 
+            
+                
+          .form(ng-show="post.editing")
+
+            form(name="pform.editForm", ng-submit="submitEditForm(post)" novalidate)
+              label Plant name 
+              input(type="text",ng-model="post.shadow.name", name="name",placeholder="Name of the plant", ng-class="{ 'has-error' : pform.editForm.name.$invalid && !pform.editForm.name.$pristine }" required)
+
+              label Description
+
+              input(type="text",name="description",ng-model="post.shadow.description",id="description",placeholder="Description")
+
+              label Quantity 
+
+              input(type="number",ng-model="post.shadow.quantity",min="1",name="quantity",id="qty", placeholder="Number of plants", ng-class="{ 'has-error' : pform.editForm.quantity.$invalid && !pform.editForm.quantity.$pristine }" required)
+
+              label Location 
+
+              input(places-auto-complete size=80 ng-model="post.shadow.address" component-restrictions="{country:'lk'}" types="{{types}}" on-place-changed="greenExchange.placeChanged()", ng-class="{ 'has-error' : pform.editForm.location.$invalid && !pform.editForm.location.$pristine }", name="location" required)  
+              .buttons
+                input(type="submit", value="Done" ng-disabled=" post.shadow.editInProgress")
+                input(type="button", value="Cancel" ng-disabled="post.shadow.editInProgress",ng-click="editCancel(post)")  
+                .loading(ng-show="post.shadow.editInProgress")
+                  img(src="/images/ball.gif", alt="Wait..", height="20px" , width="20px")
+                         
+          .prompt(ng-show="post.prompt_delete")
+            .message
+              p.info You are about to delete this plant.
+              p Are you sure you want to delete this plant? 
+            .buttons
+              button(type="button", name="button",class="yes",ng-click="deletePost(post)") Yes
+              button(type="button", name="button",class="no",ng-click="post.prompt_delete = false") No
+          
+          .prompt(ng-show="post.prompt_close")
+            .message
+              p.info You are about to mark this plant as closed.<br>That means you have completed the transactions on this item. 
+              p Are you sure you want to mark this plant as closed?
+            .buttons
+              button(type="button", name="button",class="yes",ng-click="markAsClosed(post)") Yes
+              button(type="button", name="button",class="no",ng-click="post.prompt_close = false") No
+                  
+              
+        //- .status
+        //-   h3(class='current-status')
+        .controles(ng-hide="post.editing || post.prompt_delete || post.prompt_close")
+          ul
+            li(ng-hide="isMyPost(post)") 
+              a(href="#",ng-click="post.response_form_class = 'collapse'") 
+                i(class="fa fa-comment" aria-hidden="true")
+                span  Respond
+            li(ng-show="isMyPost(post) && isLoggedIn()")
+              a(href="#",ng-click="edit(post)") 
+                i(class="fa fa-pencil" aria-hidden="true")
+                span  Edit
+            li(ng-show="isMyPost(post) && isLoggedIn()")
+              a(href="#",ng-click="promptClose(post)") 
+                i(class="fa fa-check" aria-hidden="true") 
+                span  Mark as closed
+              
+            li       
+              button(class="trigger",ng-click="") 
+                i(class="fa fa-cog" aria-hidden="true")
+              .menu 
+                ul
+                  li 
+                    a(href="#",ng-click="report(post)")
+                      i(class="fa fa-ban" aria-hidden="true")
+                      span  Report item 
+                  li(ng-show="isMyPost(post) && isLoggedIn()")
+                    a(href="#",ng-click="promptDelete(post)") 
+                      i(class="fa fa-trash-o" aria-hidden="true")
+                      span  Delete    
+              
+          

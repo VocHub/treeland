@@ -1,0 +1,1192 @@
+@import "var"
+@import "bourbon/bourbon"
+@import "mixin"
+input[type=button]
+  @include transition(all 0.2s ease)
+.green-ex-container
+  margin-top: 60px
+  .cloak
+    @media only screen and (min-width: 768px)
+      display: none
+    position: fixed
+    display: block
+    width: 100vw
+    height: 100vh
+    opacity: 0.8
+    background: #fff
+    z-index: 998
+
+  button
+    &.menu-toggle
+      @include transition(all 0.5s ease)
+      position: fixed
+      z-index: 999
+      width: 40px
+      height: 40px
+      @include border-top-radius(25px)
+      @include border-bottom-radius(25px)
+      margin-top: 5px
+      margin-left: 5px
+      font-size: 24px
+      background: $nature_green
+      color: #fff
+      border: 1px solid #e0e0e0
+      outline: none
+      @media only screen and (min-width: 768px)
+        display: none
+      &.toggle-menu-active
+        margin-left: calc(70% + 5px)
+  button
+    &.new-post
+      @include transition(all 0.5s ease)
+      position: fixed
+      z-index: 999
+      width: auto
+      height: 40px
+      @include border-top-radius(25px)
+      @include border-bottom-radius(25px)
+      margin-top: 5px
+      margin-left: 50px
+      font-size: 16px
+      background: $nature_green
+      color: #fff
+      border: 1px solid #e0e0e0
+      outline: none
+      padding-left: 10px
+      padding-right: 10px
+      @media only screen and (min-width: 768px)
+        display: none
+      &.toggle-menu-active
+        //margin-left: calc(70% + 5px)
+
+
+
+
+  .side-bar
+
+    overflow-y: scroll
+    position: fixed
+    @include col(3,12)
+    background: #fff
+    height: 100vh
+    border-right: 1px solid rgb(224, 224, 224)
+    z-index: 999
+    @media only screen and (max-width: 767px)
+      @include transition(all 0.5s ease)
+      width: 70%
+      margin-left: -70%
+    &::-webkit-scrollbar
+      width: 1px
+      height: 1px
+    &::-webkit-scrollbar-track
+      background: #fff
+    &::-webkit-scrollbar-thumb
+      background: #e0e0e0
+    &.toggle-menu-active
+      @media only screen and (max-width: 767px)
+
+        width: 70%
+        margin-left: 0%
+    .menu
+      ul
+        padding: 0px
+        margin: 0px
+        li
+          display: block
+          //background: #e4e4e4
+          //padding: 10px
+          border: 1px solid #f9f9f9
+          border-left-width: 0px
+          //border-left-color: #fff
+          border-right-width: 0px
+          border-top-width: 0px
+
+          a
+            border: 0px solid #fff
+            border-left-width: 5px
+            border-left-color: #fff
+
+            display: block
+            //-webkit-transition: all 0.5s ease
+            @include transition(all 0.5s ease)
+            &:hover
+              //background: #f5f5f5
+              border-left-width: 15px
+              border-left-color: $nature_green
+            &.active
+              //background: #f5f5f5
+              border-left-width: 15px
+              border-left-color: #444
+
+            text-decoration: none
+            //padding: 10px
+            .side-menu-item
+              padding: 10px
+              padding-left: 20px
+              .icon
+                display: inline-block
+                vertical-align: middle
+                margin-right: 5px
+                height: 40px
+                width: 40px
+                img
+                  height: 40px
+                  width: 40px
+                  margin: 0px
+              .text
+
+                display: inline-block
+                vertical-align: middle
+                h2
+                  margin: 0px
+                  font-size: 18px
+                  color: $nature_green
+                  font-weight: 500
+                p
+                  margin: 0px
+                  font-size: 13px
+                  //color: $nature_green
+                  font-weight: 400
+
+
+    .search
+      text-align: center
+      margin-top: 20px
+      margin-bottom: 20px
+
+      //height: 40px
+      input
+        &:focus
+          outline: none
+      input[type=text]
+        display: inline-block
+        //height: 100%
+        width: 60%
+        border: 1px solid #999999
+        padding: 5px
+        @include border-left-radius(10px)
+        font-size: 14px
+        font-weight: 300
+        font-family: 'Roboto', sans-serif
+        @include placeholder
+          color: #e2e2e2
+        margin: 0px
+      input[type=submit]
+        display: inline-block
+        //height: 100%
+        width: 20%
+        @include border-left-radius(0px)
+        @include border-right-radius(10px)
+        font-size: 14px
+        padding: 4.5px
+        border: 1px solid #999999
+        border-left: 0px
+        background: #fff
+        margin: 0px
+        &:hover
+          background: $nature_green
+          color: #fff
+
+    hr
+      margin: 0px
+      border: 0px
+      border-top: 1px solid #E0E0E0
+    .filler
+      //background: #f00
+      height: 80px
+      display: block
+      width: 100%
+    .sign-up
+      @include transition(all 0.5s ease)
+      text-align: center
+      background: $nature_green
+
+
+      &:hover
+        background: darken($nature_green, 10%)
+
+      .signup-form
+        @include transition(all 0.5s ease)
+        &.collapse
+          max-height: 800px
+          opacity: 1
+          //transform: rotateX(0deg)
+
+        text-align: left
+        background: #f9f9f9
+        max-height: 0px
+        overflow: hidden
+        //padding: 5px
+        border-bottom: 1px solid #E0E0E0
+        margin-top: 0px
+        width: 100%
+        box-sizing: border-box
+        //transform: rotateX(90deg)
+        //-webkit-transform-origin: top
+        opacity: 0
+        form
+          padding: 20px
+          padding-top: 10px
+        .error
+          display: block
+          width: 100%
+          height: auto
+          margin-top: 0px
+          .text
+            background: #ffcccc
+            padding: 5px
+            box-sizing: border-box
+            @include border-left-radius(5px)
+            @include border-right-radius(5px)
+            border: 1px solid #E0E0E0
+            display: block
+            margin: 0px
+            margin-top: 15px
+            width: 100%
+            text-align: center
+
+
+            p
+              display: inline-block
+              margin: 0px
+              line-height: 16px
+              font-size: 12px
+
+        .terms
+          display: block
+          width: 100%
+          height: auto
+          margin-top: 5px
+          .text
+            background: #FAEBD7
+            padding: 5px
+            box-sizing: border-box
+            @include border-left-radius(5px)
+            @include border-right-radius(5px)
+            border: 1px solid #E0E0E0
+            display: block
+            margin: 0px
+            margin-top: 15px
+            width: 100%
+            text-align: center
+
+
+            p
+              display: inline-block
+              margin: 0px
+              line-height: 16px
+              font-size: 12px
+
+          input
+            display: inline-block
+            width: 50%
+            margin: 0px
+            box-sizing: border-box
+
+        label
+          display: block
+          margin-top: 10px
+          margin-bottom: 5px
+          font-size: 14px
+          color: #000
+          span
+            color: $nature_green
+            font-size: 20px
+            &:nth-child(2)
+              font-size: 12px
+          &.guid
+            margin-top: 5px
+            margin-bottom: 3px
+          //font-weight: bolder
+        input,textarea
+          box-sizing: border-box
+          margin-bottom: 0px
+          width: 95%
+          border: 1px solid #afafaf
+          padding: 4px
+          @include border-left-radius(3px)
+          @include border-right-radius(3px)
+          font-size: 16px
+          font-weight: 300
+          font-family: 'Roboto', sans-serif
+          //transition: all 0s linear 0.5s
+
+          &:focus
+            outline: none
+            border: 2px solid $nature_green
+          &.has-error
+            border-color: #f55
+
+
+        input[type=submit]
+          margin-top: 10px
+          @include transition(all 0.5s ease)
+          font-size: 18px
+          width: auto
+          color: #fff
+          background: $nature_green
+          border: 2px solid $nature_green
+          @include border-left-radius(3px)
+          @include border-right-radius(3px)
+          padding: 10px 20px
+          &:hover
+            color: #fff
+            background: $nature_green
+          &:focus
+            outline: none
+          &:disabled
+            opacity: 0.5
+
+
+
+      a
+        //background: $nature_green
+        .img
+          display: block
+          width: 100%
+          padding: 10px
+          padding-bottom: 0px
+          margin: 0px
+          box-sizing: border-box
+          img
+            display: inline-block
+            margin: 0px
+        .text
+          display: inline-block
+          color: #fff
+          width: 100%
+          h1
+            margin: 0px
+            margin-bottom: 5px
+            font-weight: 300
+          p
+            margin-top: 0px
+            font-weight: 300
+
+
+    a
+      text-decoration: none
+      color: #444
+      .add-new
+        padding: 10px 20px
+        box-sizing: border-box
+        //height: 90px
+        //background: #aaffaa
+
+        .icon
+          display: inline-block
+          width: 15%
+          //@include col(1,5)
+          //background: #ffaaaa
+          box-sizing: border-box
+          vertical-align: middle
+
+          img
+
+            width: 100%
+            display: inline-block
+            vertical-align: middle
+
+        .text
+
+          //@include col(4,5,$last:true)
+          height: 100%
+          width: 80%
+          //background: #aaaaff
+          box-sizing: border-box
+          padding: 8px
+          display: inline-block
+          vertical-align: top
+          h2
+            font-size: 18px
+            margin: 0px
+            color: $nature_green
+          p
+            font-size: 14px
+            font-weight: 300
+            margin: 0px
+
+    .plant-info
+      max-height: 0px
+      overflow: hidden
+      //transition: all 0.2s ease-out
+      @include transition(all 0.2s ease-out)
+      opacity: 0
+      background: #f9f9f9
+      &.collapse
+        max-height: 900px
+        opacity: 1
+        //overflow-y: scroll
+        //transition: all 0.5s ease-out
+        @include transition(all 0.5s ease-out)
+
+      .post-type
+        width: 100%
+        text-align: center
+        margin-top: 0px
+        button
+          display: inline-block
+          @include transition(all 0.5s ease)
+          font-size: 14px
+          width: 33.33%
+          color: $nature_green
+          background: #fff
+          border: 2px solid $nature_green
+          @include border-left-radius(0px)
+          @include border-right-radius(0px)
+          padding: 5px 10px
+          &:hover
+            color: #fff
+            background: $nature_green
+          &:focus
+            outline: none
+          &:first-child
+            @include border-left-radius(5px)
+            @include border-right-radius(0px)
+            @include border-top-radius(0px)
+            border-right: 0px
+            //@include border-right-radius(0px)
+          &:last-child
+            @include border-left-radius(0px)
+            @include border-right-radius(5px)
+            @include border-top-radius(0px)
+            border-left: 0px
+          &.active
+            color: #fff
+            background: $nature_green
+
+
+      .form
+        margin-top: 0px
+        width: 100%
+        padding: 20px
+        padding-top: 5px
+        box-sizing: border-box
+        .loading
+          display: inline-block
+          margin-left: 10px
+          vertical-align: middle
+        label
+          display: block
+          margin-top: 10px
+          margin-bottom: 5px
+          font-size: 14px
+          color: #000
+          //font-weight: bolder
+        input,textarea
+          box-sizing: border-box
+          margin-bottom: 0px
+          width: 95%
+          border: 1px solid #999999
+          padding: 4px
+          @include border-left-radius(3px)
+          @include border-right-radius(3px)
+          font-size: 14px
+          font-weight: 300
+          font-family: 'Roboto', sans-serif
+          //transition: all 0s linear 0.5s
+
+          &:focus
+            outline: none
+            border: 2px solid $nature_green
+          &.has-error
+            border-color: #f55
+
+
+        input[type=submit]
+          margin-top: 10px
+          @include transition(all 0.5s ease)
+          font-size: 18px
+          width: auto
+          color: #fff
+          background: $nature_green
+          border: 2px solid $nature_green
+          @include border-left-radius(3px)
+          @include border-right-radius(3px)
+          padding: 10px 20px
+          &:hover
+            color: #fff
+            background: $nature_green
+          &:focus
+            outline: none
+          &:disabled
+            //background: #999
+            opacity: 0.5
+
+        .notify-me
+          label
+            font-size: 12px
+          input
+            border-width: 2px
+            border-color: #aaa
+            &.has-error
+              border-color: #f55
+
+          background: #fff
+          padding: 10px
+          box-sizing: border-box
+          border: 2px solid #f5f5f5
+          margin-top: 15px
+          margin-bottom: 0px
+          @include border-left-radius(5px)
+          @include border-right-radius(5px)
+          p
+            color: #999
+            font-weight: 100
+            font-size: 14px
+            margin: 0
+          .mail-temple
+            margin-top: 10px
+            p
+              font-size: 10px
+              color: #aaa
+              span
+                font-weight: 400
+
+
+      .map
+        height: 200px
+        display: block
+  .new-posts
+    @include col(1,12,$push:3)
+    position: fixed
+    height: auto
+    background: #fff
+    text-align: center
+    padding: 5px
+    @include border-bottom-radius(3px)
+
+    h1
+      margin: 0px
+      color: $nature_green
+    p
+      margin: 0px
+  .posts
+    @include col(6,12,$push:4,$last:true)
+    height: auto
+    //background: #f00
+    margin-top: 5px
+    .post
+      @include col(1,1,$last:true)
+      margin-top: 10px
+      position: relative
+      //background: #f00
+      background: #fff
+      height: auto
+      box-sizing: border-box
+      //width: 600px
+      // top: 0px
+      // bottom: 0px
+      // left: 0px
+      border: rgb(224, 224, 224) 1px solid
+      @include border-top-radius(8px)
+      @include border-bottom-radius(8px)
+      overflow: hidden
+      .o-divider
+        height: 1px
+        position: relative
+        background: #ddd
+        width: 100%
+      .owner
+        position: relative
+        height: 60px
+        top: 0px
+        left: 0px
+        //background: #00f
+
+        .image
+          position: absolute
+          padding: 5px
+          $h: 50px
+          height: $h
+          width: $h
+
+
+          .img
+            height: 100%
+            border-radius: 50%
+
+        .details
+          position: absolute
+          top: 0px
+          right: 0px
+          bottom: 0px
+          left: 60px
+          //background: #0f0
+          padding: 5px
+          padding-left: 5px
+
+          h2.name
+            font-size: 15px
+            color: $nature_green
+            position: relative
+            margin: 0px
+
+          p.action
+            position: relative
+            //top: 45px
+            font-size: 12px
+            color: #444
+            margin: 0px
+          p.date
+            position: relative
+            margin: 0px
+            margin-top: 3px
+            font-size: 10px
+            color: $gray
+
+
+
+
+      .item
+        position: relative
+        display: inline-block
+        left: 0px
+        top: 0px
+        width: 100%
+        height: 188px
+        vertical-align: bottom
+
+        //background: #f00
+        .type
+          box-sizing: border-box
+          position: relative
+          background: $nature_green
+          color: #fff
+          width: auto
+          //right: 0px
+          float: right
+          margin-top: 0px
+          margin-right: 10px
+          border: 1px solid #E0E0E0
+          border-top: 0px
+          border-right: 0px
+          @include border-top-radius(0px)
+          @include border-bottom-radius(5px)
+          padding: 5px
+          font-size: 12px
+          &.exchange
+            background: $nature_green
+          &.donation
+            background: #506AAD
+          &.request
+            background: #AD5098
+          &:first-child
+            color: #999
+            font-size: 12px
+            background: #fff
+            border: 1px solid #E0E0E0
+            border-top: 0px
+            border-left: 0px
+            @include border-left-radius(0px)
+          &:nth-child(2)
+            margin-right: 0px
+            @include border-right-radius(0px)
+
+        .image
+          position: relative
+          display: inline-block
+          width: 188px
+          height: 188px
+          overflow: hidden
+          background: #c4c4c4
+          img
+            width: 100%
+            height: auto
+        .controles
+          display: block
+          position: absolute
+          bottom: 0px
+          float: right
+          background: #fff
+          left: 188px
+          //margin-left: 20px
+          //right: 0px
+
+          border: 1px solid #e0e0e0
+          //border-bottom-width: 0px
+          //border-left-width: 0px
+          @include border-top-radius(5px)
+          @include border-bottom-radius(5px)
+
+          margin-left: 20px
+          margin-bottom: 10px
+
+
+          ul
+            margin: 0px
+            padding: 0px
+            font-size: 12px
+            li
+              @include transition(all 0.5s ease)
+              padding: 0px
+              display: inline-block
+              border-right: 1px solid #e0e0e0
+              &:last-child
+                border-right-width: 0px
+              color: #5b5b5b
+              &:hover
+                background: #f2f2f2
+
+
+              a
+                display: block
+                text-decoration: none
+                color: inherit
+                padding: 5px
+
+              .trigger
+                display: inline-block
+                border: none
+                overflow: hidden
+                cursor: pointer
+                outline: none
+                padding: 4px 6px
+                @include border-right-radius(5px)
+                //@include border-left-radius(0px)
+                //vertical-align: bottom
+                background: #fff
+                font-size: 12px
+                color: inherit
+                &:hover
+                  background: #f2f2f2
+
+                &:focus
+                  outline: none
+                  & + .menu
+                    display: block
+                &:active
+                  outline: none
+                  & + .menu
+                    display: block
+
+              .menu
+                position: absolute
+                display: none
+                bottom: 25px
+                border: 1px solid #e0e0e0
+                padding: 0px
+                width: 100px
+                margin-left: -1px
+                background: #fff
+                &:hover
+                  display: block
+                ul
+                  margin: 0px
+                  padding: 0px
+                  font-size: 12px
+                  li
+                    @include transition(all 0.5s ease)
+                    padding: 0px
+                    display: block
+                    border-width: 0px
+                    border-bottom: 1px solid #e0e0e0
+
+                    &:last-child
+                      border-bottom-width: 0px
+                    color: #5b5b5b
+                    &:hover
+                      background: #f2f2f2
+                      //color: #fff
+                    a
+                      display: block
+                      text-decoration: none
+                      color: inherit
+                      padding: 5px
+                      span
+                        margin-left: 3px
+
+        .details
+          position: absolute
+          display: inline-block
+          .prompt
+            .message
+              p
+                &.info
+                  font-size: 12px
+            .buttons
+              button
+                @include transition(all 0.5s ease)
+                border: 1px solid #e0e0e0
+                padding: 5px 15px
+                font-size: 14px
+                @include border-top-radius(5px)
+                @include border-bottom-radius(5px)
+                margin-right: 5px
+                background: #fff
+                outline: none
+                &:hover
+                  background: $nature_green
+                  color: #fff
+
+              // .yes
+              //
+              // .no
+          .form
+            form
+              .buttons
+                margin-top: 5px
+                display: inline-block
+                input
+                  display: inline-block
+                  width: auto
+                  margin-right: 3px
+                  &:first-child
+                    background: $nature_green
+                    color: #fff
+                    border-color: $nature_green
+                    border-width: 1px
+                  &:nth-child(2)
+                    background: #fff
+                    color: $nature_green
+                    border-color: $nature_green
+                    border-width: 1px
+                    border-style: solid
+                  &:disabled
+                    opacity: 0.5
+                .loading
+                  display: inline-block
+                  vertical-align: middle
+              input
+                width: 100%
+                //border-style: dashed
+                border: 1px dashed #d0d0d0
+                border-top-width: 0px
+                border-left-width: 0px
+                border-right-width: 0px
+                @include border-top-radius(5px)
+                @include border-bottom-radius(5px)
+                &:focus
+                  outline: none
+
+              label
+                font-size: 10px
+                display: block
+                margin-top: 3px
+              textarea
+                resize: none
+                width: 100%
+                border: 1px solid #E0E0E0
+                @include border-top-radius(5px)
+                @include border-bottom-radius(5px)
+
+
+
+          //bottom: 0px
+          padding: 15px
+          //background: #f00
+          .name
+            font-size: 28px
+            display: inline-block
+            margin: 5px
+            margin-bottom: 0px
+            color: $nature_green
+          .status
+            margin: 5px
+            margin-bottom: 0px
+            font-size: 14px
+            font-weight: 400
+            color: #444
+          .discription
+            margin: 5px
+            margin-top: 2px
+            font-size: 13px
+            color: $gray
+          a
+            display: inline-block
+          a:hover
+            .responds
+              span
+                font-weight: bold
+                text-decoration: underline
+          .responds
+            display: block
+            //background: #aaf
+            span
+              //background: #ffe
+              display: inline-block
+              vertical-align: middle
+              font-size: 14px
+              &.exchange
+                color: $nature_green
+              &.donate
+                color: #506AAD
+              &.request
+                color: #AD5098
+              img
+                display: inline-block
+                vertical-align: middle
+
+      .respond
+        @include transition(all 0.5s ease)
+        max-height: 0px
+        &.collapse
+          max-height: 300px
+        .respond-form
+          width: 100%
+          padding: 10px
+          box-sizing: border-box
+          border-top: 1px solid #e0e0e0
+          background: #f9f9f9
+          .loading
+            display: inline-block
+            vertical-align: middle
+            margin-left: 10px
+          .break
+            display: block
+          p
+            font-size: 14px
+            margin: 5px
+            color: $nature_green
+          form
+            p
+              font-size: 13px
+              margin: 0px
+              margin-bottom: 10px
+              color: $nature_green
+            input
+              display: inline-block
+              box-sizing: border-box
+              margin: 0px
+              width: 33.333%
+              font-size: 14px
+              border: 1px solid #e0e0e0
+              margin-bottom: 5px
+              padding-left: 5px
+              @include transition(all 0.5s ease)
+              @include placeholder
+                color: #777777
+                font-weight: 200
+
+
+              &:nth-child(1)
+                @include border-left-radius(5px)
+              &:nth-child(2)
+                border-left: 0px
+                border-right: 0px
+              &:nth-child(3)
+                @include border-right-radius(5px)
+              &:nth-child(4)
+                @include border-left-radius(5px)
+                @include border-right-radius(5px)
+              &:nth-child(5)
+                @include border-right-radius(5px)
+                border-left: 0px
+              &:focus
+                outline: none
+                border-color: #444
+              &.has-error
+                border-color: #f55
+            input[type=submit]
+              padding: 0px
+              display: inline-block
+              background: $nature_green
+              color: #fff
+              width: auto
+              padding: 10px 25px
+              @include border-right-radius(5px)
+              @include border-left-radius(5px)
+              &:disabled
+                opacity: 0.5
+
+      .market-item-bids
+        position: relative
+        display: inline-block
+        left: 0px
+        //top: 0px
+        width: 100%
+        //border: rgb(224, 224, 224) 1px solid
+        //border-bottom-left-radius: 8px
+        //border-bottom-right-radius: 8px
+        //height: 70px
+        background: #faebd7
+        ul.bids-list
+          margin: 0px
+          //padding: 5px
+          padding-left: 0px
+
+
+          li.bid-item
+            position: relative
+            box-sizing: border-box
+            display: inline-block
+            width: 100%
+            height: auto
+            padding: 5px
+            border-top: #e0e0e0 1px solid
+            &:hover
+              .contact-info
+                opacity: 1
+                button
+                  padding: 6px 6px
+            //background: #f77
+            .bidder
+              position: relative
+              height: 35px
+              width: 35px
+              .image
+                position: absolute
+                left: 0px
+                height: 100%
+
+                img
+                  //position: absolute
+                  border-radius: 50%
+                  height: 100%
+
+
+            .details
+              position: absolute
+              display: inline-block
+
+              //background: #f55
+              top: 0px
+              left: 50px
+              bottom: 0px
+              right: 5px
+              padding: 5px
+
+              h3.name
+                font-size: 14px
+                margin: 0px
+                color: $nature_green
+                small.action
+                  font-weight: 500
+                  position: relative
+                  color: #444
+
+              h3.value
+                font-size: 13px
+                margin: 0px
+
+                color: #666
+              p.discription
+                font-size: 10px
+                margin: 0px
+                margin-top: 1px
+                color: #666
+            .contact-info
+              @include transition(all 0.3s ease)
+              display: inline-block
+              position: absolute
+              top: 0px
+              right: 0px
+              float: left
+              opacity: 0.5
+
+
+
+              button
+                @include transition(all 0.5s ease)
+                margin: 0px
+                margin-right: 10px
+                font-size: 12px
+                box-sizing: border-box
+                vertical-align: top
+                max-width: 120px
+                //height: 20px
+
+                color: #888
+                @include border-top-radius(0px)
+                @include border-bottom-radius(5px)
+                background: #fff
+                border: 1px solid #e0e0e0
+                border-top-width: 0px
+                &.reveal
+                  max-width: 200px
+                &:focus
+                  outline: none
+                &:hover
+                  background: $nature_green
+                  color: #fff
+.guide
+  @include display(flex)
+  .donation-guide
+    -webkit-flex: 1
+    -ms-flex: 1
+    flex: 1
+    @include border-top-radius(8px)
+    @include border-bottom-radius(8px)
+    background: #fff
+    width: calc((100% - 10px)/2)
+    box-sizing: border-box
+    padding: 0px
+    margin-top: 10px
+    margin-right: 10px
+    display: inline-block
+    vertical-align: top
+    //overflow: hidden
+    border: 1px solid #e0e0e0
+
+    &.last
+      //width: calc(50% - 0px)
+      margin-right: 0px
+    .image
+      display: inline-block
+      vertical-align: top
+      width: calc(33.333% - 4px)
+      margin-right: 4px
+      text-align: center
+      padding: 20px
+      box-sizing: border-box
+      img
+        width: 100%
+        height: auto
+      h1
+        font-size: 20px
+        font-weight: 500
+        margin: 3px
+      p
+        font-size: 12px
+        margin: 2px
+    .text
+
+      background: #f5f5f5
+      display: inline-block
+      width: calc(66.666%)
+      padding: 20px
+      text-align: left
+      box-sizing: border-box
+      height: 100%
+      @include border-right-radius(8px)
+      img
+        @include transition(all 0.5s ease)
+        display: block
+        width: 100%
+        height: auto
+        vertical-align: middle
+        border: 2px solid #e0e0e0
+        @include border-top-radius(5px)
+        @include border-bottom-radius(5px)
+        margin: 5px
+        margin-left: 0
+        z-index: 9999999
+        &:hover
+          transform: scale(2.3)
+
+      h2
+        font-size: 18px
+        font-weight: 500
+        margin: 0
+        margin-bottom: 10px
+      p
+        font-size: 12px
+        margin: 2px
+        span
+          &.bold
+            font-weight: 600
+.fx-valley
+  position: fixed
+  display: block
+  margin: 20px
+  margin-bottom: 10px
+  bottom: 0px
+  right: 0px
+  z-index: 999999
+  p
+    font-size: 10px
+    color: #999
+    margin: 0
+    font-weight: 400
+    span
+      font-weight: 600

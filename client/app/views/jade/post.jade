@@ -1,0 +1,65 @@
+.post-container
+  .post
+    .owner
+      .image
+        img(class='img',src='/images/avatar.svg')
+      .details
+        h2(class='name')  {{post.owner.name}} 
+        p(class='action') has posted on 
+          span#marketplace 
+            strong The Forest
+        p(class='date') {{post.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+      .controls.round
+        button(class="round") <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        .drop  
+          ul
+            li(ng-show="isLoggedIn() && isMyPost(post)")
+              a(href="" ng-click="enable_editing(post)") <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+            li(ng-show="isLoggedIn() && isMyPost(post)")
+              a() <i class="fa fa-trash" aria-hidden="true"></i> Delete 
+            li 
+              a(href="#" socialshare socialshare-provider="facebook" socialshare-type="share" socialshare-title="{{post.subject}}" socialshare-description="{{post.body}}" socialshare-hashtags="naturenurture, greenexchange, theforest, lka" socialshare-via="1284200164956355" socialshare-media="http://www.naturenurture.lk/{{post.images[0].url}}" socialshare-url="{{postUrl(post)}}") 
+                span <i class="fa fa-facebook-square" aria-hidden="true"></i> 
+                span.txt Share
+            li
+              a() <i class="fa fa-ban" aria-hidden="true"></i> Report
+    .post-title    
+      h1 {{post.subject}}
+    .tiles(ng-hide="post.images.length === 0")
+      .tile-container
+        .tile-align
+          .cover(ng-style="{'background-image':'url(../../'+post.images[0].url+')'}")
+          .image-tile(ng-repeat="img in post.images", ng-style="{'background-image':'url(../../'+img.url+')'}" ng-hide="post.images.length === 1")
+          
+    
+    .post-body
+      p(ng-bind-html="newlineToBr(post.body)") 
+      .social
+        a(href="#" socialshare socialshare-provider="facebook" socialshare-type="share" socialshare-title="{{post.subject}}" socialshare-description="{{post.body}}" socialshare-hashtags="naturenurture, greenexchange, theforest, lka" socialshare-via="1284200164956355" socialshare-media="http://www.naturenurture.lk/{{post.images[0].url}}" socialshare-url="{{postUrl(post)}}") 
+          span <i class="fa fa-facebook-square" aria-hidden="true"></i> 
+          span.txt Share
+          
+    .comments.round
+      
+        
+      ul(ng-show="post.comments && post.comments.length")
+        li(ng-repeat="comment in post.comments") 
+          .comment 
+            .avatar
+              img(class='img',src='/images/avatar.svg')
+            .text
+              .meta
+                span.owner {{comment.owner.name}}  
+                span {{comment.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+              .content 
+                p {{comment.body}}
+      form(ng-submit="submit_comment(post)", ng-hide="!isLoggedIn()")
+        p Press enter to post your comment
+        input(type="text", placeholder="Write your comment...", ng-model="post.new_comment.body")
+        input(type="submit" ng-disabled="post.new_comment.pending", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
+          
+    .signup-request(ng-hide="isLoggedIn()")
+      p 
+        span 
+          a(href="/signup" target="_blank") Signup
+        span  to post a comment    

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head><meta charset="utf-8">
+  <title></title>
+
+</head>
+<body style="margin: 0;">
+  <div class="root" style="text-align: center;font-family: sans-serif;background: #f5f5f5;padding: 3px;">
+    <div class="msg" style="display: inline-block;width: 100%;max-width: 600px;text-align: left;margin-top: 50px;">
+      <h1 style="font-size: 16px;margin: 0;">{{=it.owner.name}}
+      </h1>
+      <p style="font-weight: 300;margin: 0;">has responded
+        <span class="bold" style="font-weight: bold;">
+        </span>
+        <span>to your </span>
+      </p>
+      <p style="font-weight: 300;margin: 0;margin-top: 5px;">
+        <span class="bold" style="font-size: 24px;font-weight: bold;">{{=it.parent.quantity}} {{=it.parent.name}}
+        </span>
+        <span>plants</span>
+      </p>
+
+      </h1>
+      <p style="font-weight: 300;margin: 0;"></p>
+    </div><br>
+    <div class="res" style="display: inline-block;width: 100%;max-width: 600px;text-align: left;border: 1px solid #e0e0e0;border-radius: 5px;border-bottom-left-radius: 0;border-bottom-right-radius: 0;background: white;padding: 10px;margin-top: 20px;margin-bottom: 0;">
+      <div class="pic" style="vertical-align: top;display: inline-block;width: 50px;height: 100%;"><img src="http://www.naturenurture.lk/images/avatar.png" alt="" style="width: 100%;height: auto;"></div>
+      <div class="details" style="display: inline-block;vertical-align: top;">
+        <p class="name" style="margin: 3px 3px 3px 10px;font-weight: 600;font-size: 14px;">{{=it.owner.name}}
+          <span style="font-weight: 300;">has offered</span>
+        </p>
+        <p class="item" style="margin: 3px 3px 3px 10px;font-weight: 600;font-size: 20px;">{{=it.quantity}} {{=it.name}}
+          <span style="font-weight: 300;">plants</span>
+        </p>
+        <p class="add" style="margin: 3px 3px 3px 10px;font-weight: 300;font-size: 14px;">{{=it.address}}</p>
+        <p class="date" style="margin: 3px 3px 3px 10px;font-weight: 300;font-size: 12px;">{{=it.date}}</p>
+      </div>
+    </div><br>
+    <div class="contact" style="display: inline-block;width: 100%;max-width: 600px;text-align: left;border: 1px solid #00b666;border-radius: 5px;background: #00b666;padding: 10px;margin-top: 0;margin-bottom: 30px;border-top-left-radius: 0;border-top-right-radius: 0;border-top-width: 0;color: white;">
+      <p style="margin: 0;font-weight: 300;font-size: 12px;">Contact info (Let them know if you are interested)
+        <br>
+        <span style="font-weight: 600;font-size: 20px;letter-spacing: 1px;">{{=it.contact_info}}
+        </span>
+      </p>
+    </div><br>
+    <div class="info" style="display: inline-block;width: 100%;max-width: 600px;text-align: left;color: #a5a5a5;">
+      <p style="font-size: 10px;">You are getting this email because you are subscribed to your post on
+        <span>
+          <a style="color:#00b666;", href="http://www.naturenurture.lk/green-exchange">naturenurture.lk/green-exchange<br></a>
+        </span>
+        <span>
+          <a style="color:#00b666;", href="http://www.naturenurture.lk/green-exchange">Unsubscribe</a>
+        </span>
+      </p>
+    </div><br>
+    <div class="logo" style="display: inline-block;width: 100%;max-width: 600px;text-align: left;margin-bottom: 50px;">
+      <img src="http://www.naturenurture.lk/images/logo_gray.png" alt="Nature Nurture" style="width: 100px;height: auto;"></div><br></div>
+</body>

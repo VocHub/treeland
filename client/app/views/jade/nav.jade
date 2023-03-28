@@ -1,0 +1,73 @@
+button(type="button" ng-click="toggle_menu = toggle_menu ? false : true" ng-class="toggle_menu ? 'active' : ''") <i class="fa fa-bars" aria-hidden="true"></i>
+
+.logo
+  a(href="/") 
+    img(src='/images/logo.png')
+
+.menu-m(ng-show="toggle_menu" )
+  ul
+    li(ng-repeat='item in nav.menu', ui-sref-active='active')
+      a(ui-sref='{{item.state}}' ng-cloak) {{item.title}}
+
+    li(ng-show='nav.isAdmin()', ui-sref-active='active' ng-cloak)
+      a(ui-sref='admin') Admin
+
+  ul 
+    li(ui-sref-active='active' ng-class="getNavClass('/movement')")
+      a(href='/movement') Movement
+      
+    li(ui-sref-active='active' ng-class="getNavClass('/green-exchange')")
+      a(href='/green-exchange') Green Exchange
+
+    li(ui-sref-active='active' ng-class="getNavClass('/forest')")
+      a(href='/forest') The Forest 
+
+    li(ng-hide='isLoggedIn()', ui-sref-active='active' ng-class="getNavClass('/signup')")
+      a(href='/signup') Sign up
+
+    li(ng-hide='isLoggedIn()', ui-sref-active='active')
+      a(href='/') Login
+
+    li.profile(ng-show="isLoggedIn()")
+      .image 
+        img(src="/images/avatar.svg", alt="")
+      .details
+        .greet
+          span Hi 
+          span.username(ng-cloak) {{currentUser()}}
+        a(href="/logout") Logout 
+
+      
+.menu
+
+  ul
+    li(ng-repeat='item in nav.menu', ui-sref-active='active')
+      a(ui-sref='{{item.state}}' ng-cloak) {{item.title}}
+
+    li(ng-show='nav.isAdmin()', ui-sref-active='active' ng-cloak)
+      a(ui-sref='admin') Admin
+
+  ul 
+    li(ui-sref-active='active' ng-class="getNavClass('/movement')")
+      a(href='/movement') Movement
+      
+    li(ui-sref-active='active' ng-class="getNavClass('/green-exchange')")
+      a(href='/green-exchange') Green Exchange
+
+    li(ui-sref-active='active' ng-class="getNavClass('/forest')")
+      a(href='/forest') The Forest 
+
+    li(ng-hide='isLoggedIn()', ui-sref-active='active' ng-class="getNavClass('/signup')")
+      a(href='/signup') Sign up
+
+    li(ng-hide='isLoggedIn()', ui-sref-active='active')
+      a(href='/') Login
+
+    li.profile(ng-show="isLoggedIn()")
+      .image 
+        img(src="/images/avatar.svg", alt="")
+      .details
+        .greet
+          span Hi 
+          span.username(ng-cloak) {{currentUser()}}
+        a(href="/logout") Logout 

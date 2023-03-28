@@ -1,0 +1,113 @@
+.post-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-top: 80px; }
+  @media only screen and (min-width: 768px) {
+    .post-container {
+      width: 768px; } }
+
+.post .signup-request {
+  margin-top: 20px;
+  padding: 10px;
+  box-sizing: border-box; }
+  .post .signup-request p span {
+    font-size: 18px; }
+    .post .signup-request p span a {
+      color: #50AD65; }
+
+.post .comments.round {
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden; }
+
+.post .post-title {
+  text-align: center;
+  padding: 0px 5px; }
+  .post .post-title h1 {
+    color: #000; }
+
+.post .post-body {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px; }
+  .post .post-body p {
+    color: #000; }
+
+.post .tiles {
+  margin-top: 30px;
+  text-align: center; }
+  .post .tiles .tile-container {
+    display: inline-block;
+    text-align: center;
+    width: 100%; }
+    .post .tiles .tile-container .tile-align {
+      display: inline-block;
+      text-align: center;
+      width: 100%; }
+      @media only screen and (min-width: 768px) {
+        .post .tiles .tile-container .tile-align {
+          text-align: left; } }
+      .post .tiles .tile-container .tile-align .cover {
+        width: 100%;
+        height: 300px;
+        display: inline-block;
+        background-size: cover;
+        background-position: center; }
+        @media only screen and (min-width: 768px) {
+          .post .tiles .tile-container .tile-align .cover {
+            width: 768px; } }
+      .post .tiles .tile-container .tile-align .image-tile {
+        height: calc(768px/4);
+        width: calc(768px/4);
+        background: #999;
+        display: inline-block;
+        background-size: cover;
+        background-position: center; }
+
+.post .owner {
+  position: relative;
+  height: 60px;
+  top: 0px;
+  left: 0px; }
+  .post .owner .image {
+    position: absolute;
+    padding: 5px;
+    height: 50px;
+    width: 50px; }
+    .post .owner .image .img {
+      height: 100%;
+      border-radius: 50%; }
+  .post .owner .details {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 60px;
+    padding: 5px;
+    padding-left: 5px; }
+    .post .owner .details h2.name {
+      font-size: 15px;
+      color: #50AD65;
+      position: relative;
+      margin: 0px; }
+    .post .owner .details p.action {
+      position: relative;
+      font-size: 12px;
+      color: #444;
+      margin: 0px; }
+    .post .owner .details p.date {
+      position: relative;
+      margin: 0px;
+      margin-top: 3px;
+      font-size: 10px;
+      color: #888; }
+  .post .owner .controls button.round {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    box-shadow: 0px 3px 10px #ccc; }
+    .post .owner .controls button.round:hover {
+      box-shadow: 0px 1px 5px #ccc; }

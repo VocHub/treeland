@@ -1,0 +1,207 @@
+@import "var"
+@import "bourbon/bourbon"
+@import "mixin"
+.su-container
+  margin-top: 100px
+.verify_email_notification
+  text-align: center
+  @include container()
+  h1
+    font-size: 18px
+    margin-top: 0px
+    margin-bottom: 0px
+    i
+      color: $nature_green
+  p
+    font-size: 12px
+    margin: 5px
+    &.important
+      font-size: 20px
+      color: #000
+  .notification
+    width: 60%
+    padding: 10px
+    background: #faebd7
+    margin-left: auto
+    margin-right: auto
+    margin-top: 20px
+    border: 1px solid #888
+    @include border-left-radius(8px)
+    @include border-right-radius(8px)
+
+
+.signup-board
+  margin-top: 20px
+  //@include col(3,12,$last:true)
+  width: 400px
+  @include border-left-radius(8px)
+  @include border-right-radius(8px)
+  margin-left: auto
+  margin-right: auto
+  overflow: hidden
+  border: 1px #E0E0E0 solid
+.sign-up
+  @include transition(all 0.5s ease)
+  text-align: center
+  background: $nature_green
+
+  &:hover
+    background: darken($nature_green, 10%)
+
+  .signup-form
+    @include transition(all 0.5s ease)
+    &.collapse
+      max-height: 800px
+      opacity: 1
+      //transform: rotateX(0deg)
+
+    text-align: left
+    background: #f9f9f9
+    max-height: 0px
+    overflow: hidden
+    //padding: 5px
+    border-bottom: 1px solid #E0E0E0
+    margin-top: 0px
+    width: 100%
+    box-sizing: border-box
+    //transform: rotateX(90deg)
+    //-webkit-transform-origin: top
+    opacity: 0
+    form
+      padding: 20px
+      padding-top: 10px
+    .error
+      display: block
+      width: 100%
+      height: auto
+      margin-top: 0px
+      .text
+        background: #ffcccc
+        padding: 5px
+        box-sizing: border-box
+        @include border-left-radius(5px)
+        @include border-right-radius(5px)
+        border: 1px solid #E0E0E0
+        display: block
+        margin: 0px
+        margin-top: 15px
+        width: 100%
+        text-align: center
+
+
+        p
+          display: inline-block
+          margin: 0px
+          line-height: 16px
+          font-size: 12px
+
+    .terms
+      display: block
+      width: 100%
+      height: auto
+      margin-top: 5px
+      .text
+        background: #FAEBD7
+        padding: 5px
+        box-sizing: border-box
+        @include border-left-radius(5px)
+        @include border-right-radius(5px)
+        border: 1px solid #E0E0E0
+        display: block
+        margin: 0px
+        margin-top: 15px
+        width: 100%
+        text-align: center
+
+
+        p
+          display: inline-block
+          margin: 0px
+          line-height: 16px
+          font-size: 12px
+
+      input
+        display: inline-block
+        width: 50%
+        margin: 0px
+        box-sizing: border-box
+
+    label
+      display: block
+      margin-top: 10px
+      margin-bottom: 5px
+      font-size: 14px
+      color: #000
+      span
+        color: $nature_green
+        font-size: 20px
+        &:nth-child(2)
+          font-size: 12px
+      &.guid
+        margin-top: 5px
+        margin-bottom: 3px
+      //font-weight: bolder
+    input,textarea
+      box-sizing: border-box
+      margin-bottom: 0px
+      width: 95%
+      border: 1px solid #afafaf
+      padding: 4px
+      @include border-left-radius(3px)
+      @include border-right-radius(3px)
+      font-size: 16px
+      font-weight: 300
+      font-family: 'Roboto', sans-serif
+      //transition: all 0s linear 0.5s
+
+      &:focus
+        outline: none
+        border: 2px solid $nature_green
+      &.has-error
+        border-color: #f55
+
+
+    input[type=submit]
+      margin-top: 10px
+      @include transition(all 0.5s ease)
+      font-size: 18px
+      width: auto
+      color: #fff
+      background: $nature_green
+      border: 2px solid $nature_green
+      @include border-left-radius(3px)
+      @include border-right-radius(3px)
+      padding: 10px 20px
+      &:hover
+        color: #fff
+        background: $nature_green
+      &:focus
+        outline: none
+      &:disabled
+        opacity: 0.5
+
+
+
+  a
+    //background: $nature_green
+    .img
+      display: block
+      width: 100%
+      padding: 10px
+      padding-bottom: 0px
+      margin: 0px
+      box-sizing: border-box
+      img
+        display: inline-block
+        margin: 0px
+    .text
+      display: inline-block
+      color: #fff
+      width: 100%
+      h1
+        margin: 0px
+        margin-bottom: 5px
+        font-weight: 300
+      p
+        margin-top: 0px
+        font-weight: 300

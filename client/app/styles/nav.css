@@ -1,0 +1,210 @@
+nav {
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 60px;
+  background: #fff;
+  color: #000;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: distribute;
+  box-pack: distribute;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  -o-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: distribute;
+  -webkit-box-align: center;
+  box-align: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  border-bottom: #e0e0e0 1px solid; }
+  @media only screen and (max-width: 767px) {
+    nav {
+      display: block; } }
+  nav .menu-m {
+    height: 100%;
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0px; }
+    @media only screen and (min-width: 768px) {
+      nav .menu-m {
+        display: none; } }
+    nav .menu-m ul {
+      display: block;
+      width: 100%;
+      padding-left: 0px;
+      margin: 0;
+      background: #fff; }
+      nav .menu-m ul .active a {
+        color: #50AD65; }
+      nav .menu-m ul li {
+        display: block;
+        margin-right: 20px;
+        font-weight: bold;
+        padding: 8px 0px;
+        box-sizing: border-box;
+        margin: 0;
+        padding-left: 10px;
+        border-bottom: #e0e0e0 1px solid; }
+        nav .menu-m ul li.profile {
+          font-size: 12px; }
+          nav .menu-m ul li.profile .image {
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            vertical-align: middle;
+            margin-right: 3px;
+            box-sizing: border-box; }
+          nav .menu-m ul li.profile .details {
+            display: inline-block;
+            vertical-align: middle; }
+            nav .menu-m ul li.profile .details .greet {
+              display: block;
+              margin-bottom: 2px; }
+            nav .menu-m ul li.profile .details a {
+              -webkit-transition: all 0.5s ease;
+              transition: all 0.5s ease;
+              border-bottom-left-radius: 3px;
+              border-top-left-radius: 3px;
+              border-bottom-right-radius: 3px;
+              border-top-right-radius: 3px;
+              font-size: 10px;
+              padding: 2px;
+              border: 1px solid #999999;
+              width: auto; }
+              nav .menu-m ul li.profile .details a:hover {
+                background: #50AD65;
+                color: #fff;
+                border-color: #50AD65; }
+        nav .menu-m ul li a {
+          text-decoration: none;
+          color: inherit; }
+        nav .menu-m ul li:hover a {
+          color: #50AD65; }
+  nav .menu {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    box-align: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center; }
+    @media only screen and (max-width: 767px) {
+      nav .menu {
+        display: none; } }
+    nav .menu ul {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      box-align: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      -ms-flex-align: center; }
+      nav .menu ul .active a {
+        color: #50AD65; }
+      nav .menu ul li {
+        display: block;
+        margin-right: 20px;
+        font-weight: bold; }
+        nav .menu ul li.profile {
+          font-size: 12px; }
+          nav .menu ul li.profile .image {
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            vertical-align: middle;
+            margin-right: 3px;
+            box-sizing: border-box; }
+          nav .menu ul li.profile .details {
+            display: inline-block;
+            vertical-align: middle; }
+            nav .menu ul li.profile .details .greet {
+              display: block;
+              margin-bottom: 2px; }
+            nav .menu ul li.profile .details a {
+              -webkit-transition: all 0.5s ease;
+              transition: all 0.5s ease;
+              border-bottom-left-radius: 3px;
+              border-top-left-radius: 3px;
+              border-bottom-right-radius: 3px;
+              border-top-right-radius: 3px;
+              font-size: 10px;
+              padding: 2px;
+              border: 1px solid #999999;
+              width: auto; }
+              nav .menu ul li.profile .details a:hover {
+                background: #50AD65;
+                color: #fff;
+                border-color: #50AD65; }
+        nav .menu ul li a {
+          text-decoration: none;
+          color: inherit; }
+        nav .menu ul li:hover a {
+          color: #50AD65; }
+  nav .logo {
+    height: 100%;
+    padding-left: 5px; }
+    nav .logo a {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      box-align: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      -ms-flex-align: center;
+      height: 100%; }
+      nav .logo a img {
+        height: 70%;
+        width: auto; }
+    @media only screen and (max-width: 767px) {
+      nav .logo {
+        display: inline-block; }
+        nav .logo a img {
+          height: 50%; } }
+  nav button {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    height: 100%;
+    background: #fff;
+    vertical-align: top;
+    font-size: 2em;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media only screen and (min-width: 768px) {
+      nav button {
+        display: none; } }
+    nav button.active {
+      background: #50AD65;
+      color: #fff; }

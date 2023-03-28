@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: sans-serif; }
+
+.guide {
+  width: 100%;
+  text-align: center; }
+  .guide .logo {
+    display: inline-block;
+    margin-top: 50px;
+    max-width: 200px; }
+    .guide .logo img {
+      width: 100%;
+      height: auto; }
+  .guide h1 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 30px;
+    color: #50ad65; }
+  .guide p {
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 30px; }
+    .guide p a {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      color: #50ad65; }
+  .guide h3 {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0; }
+  .guide h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 50px; }
+  .guide .donation-guide {
+    max-width: 400px;
+    border-radius: 5px;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #e0e0e0; }
+    .guide .donation-guide .image {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(33.333% - 4px);
+      margin-right: 4px;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box; }
+      .guide .donation-guide .image img {
+        width: 100%;
+        height: auto; }
+      .guide .donation-guide .image h1 {
+        font-size: 20px;
+        font-weight: 500;
+        margin: 3px; }
+      .guide .donation-guide .image p {
+        font-size: 12px;
+        margin: 2px; }
+    .guide .donation-guide .text {
+      background: #f5f5f5;
+      display: inline-block;
+      width: calc(66.666%);
+      padding: 20px;
+      text-align: left;
+      box-sizing: border-box;
+      height: 100%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
+      .guide .donation-guide .text img {
+        -webkit-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+        display: block;
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        margin: 5px;
+        margin-left: 0;
+        z-index: 9999999; }
+      .guide .donation-guide .text h2 {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0;
+        margin-bottom: 10px; }
+      .guide .donation-guide .text p {
+        font-size: 12px;
+        margin: 2px; }
+        .guide .donation-guide .text p span.bold {
+          font-weight: 600; }
